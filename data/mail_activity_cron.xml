@@ -1,0 +1,20 @@
+<!-- mail_activity_enhancements/data/mail_activity_cron.xml -->
+<odoo>
+  <data noupdate="1">
+    <record id="ir_cron_mail_activity_daily_reminder" model="ir.cron">
+      <field name="name">Mail Activity — daily start reminders</field>
+      <field name="model_id" ref="mail.model_mail_activity"/>
+      <field name="state">code</field>
+      <!-- call the public method defined in the model -->
+      <field name="code">model.send_daily_start_reminders()</field>
+      <field name="active">True</field>
+      <!-- run every 1 day -->
+      <field name="interval_number">1</field>
+      <field name="interval_type">days</field>
+      <field name="numbercall">-1</field>
+      <!-- nextcall default: set to tomorrow 07:00 server time (example) -->
+      <!-- You can edit this Scheduled Action after install to set the exact hour you want -->
+      <!-- nextcall is optional; Odoo will compute automatically. -->
+    </record>
+  </data>
+</odoo>
